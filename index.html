@@ -1,66 +1,1080 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mountaineering Explorer - Home</title>
-    <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Basics | Essential Tools & Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #ffcc00;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffcc00;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: white;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent), #ff6b9d);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(247, 37, 133, 0.4);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            padding: 3rem 0;
+        }
+        
+        /* Tools Section */
+        .tools-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .section-title i {
+            color: var(--accent);
+        }
+        
+        /* Tool Cards */
+        .tool-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--light-gray);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .google-icon {
+            background: linear-gradient(to right, #4285F4, #34A853);
+        }
+        
+        .answer-icon {
+            background: linear-gradient(to right, #FF6B6B, #FF8E53);
+        }
+        
+        .uber-icon {
+            background: linear-gradient(to right, #6A11CB, #2575FC);
+        }
+        
+        /* Tool Functionality */
+        .tool-functionality {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tool-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tool-tab.active {
+            color: var(--primary);
+        }
+        
+        .tool-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .tool-content {
+            display: none;
+        }
+        
+        .tool-content.active {
+            display: block;
+        }
+        
+        /* Tool Inputs */
+        .tool-input {
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-input label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .tool-input input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .tool-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        
+        .search-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .search-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Results */
+        .results-container {
+            margin-top: 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .results-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .results-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .result-item {
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            background-color: var(--light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .sidebar-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-section ul {
+            list-style: none;
+        }
+        
+        .sidebar-section li {
+            margin-bottom: 12px;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+        
+        .sidebar-section li:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar-section a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sidebar-section a:hover {
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: #ffcc00;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #adb5bd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tool-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-tabs {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tools-section, .tool-functionality, .sidebar {
+                padding: 1.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 20px;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Digital Marketing Basics</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> Tools</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> Resources</a></li>
+                        <li><a href="#"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">Mountaineering Explorer</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
-        <li class="nav-item"><a class="nav-link" href="types.html">Types</a></li>
-        <li class="nav-item"><a class="nav-link" href="techniques.html">Techniques</a></li>
-        <li class="nav-item"><a class="nav-link" href="sheltering.html">Sheltering</a></li>
-        <li class="nav-item"><a class="nav-link" href="hazards.html">Hazards</a></li>
-        <li class="nav-item"><a class="nav-link" href="records.html">Records</a></li>
-        <li class="nav-item"><a class="nav-link" href="organizations.html">Organizations</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="updates.html">Updates</a></li>
-        <li class="nav-item"><a class="nav-link" href="guidelines.html">Guidelines</a></li>
-      </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Master Digital Marketing Basics</h1>
+            <p>Learn essential strategies and use powerful tools like Google Search Suggestions, Answer The Public, and Ubersuggest to boost your online presence.</p>
+            <a href="#tools" class="cta-button">Explore Tools <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Left Column: Tools -->
+        <div class="left-column">
+            <!-- Tool Cards -->
+            <section class="tools-section" id="tools">
+                <h2 class="section-title"><i class="fas fa-tools"></i> Essential Digital Marketing Tools</h2>
+                <div class="tool-cards">
+                    <div class="tool-card">
+                        <div class="tool-icon google-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <h3>Google Search Suggestions</h3>
+                        <p>Discover what people are searching for on Google. Get keyword ideas and understand search intent to optimize your content.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon answer-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Answer The Public</h3>
+                        <p>Visualize search questions and queries. Find what questions your audience is asking around any topic to create targeted content.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon uber-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Ubersuggest (Free Searches)</h3>
+                        <p>Analyze keywords, get SEO insights, and discover content ideas. Track your ranking and find competitor strategies.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tool Functionality -->
+            <section class="tool-functionality">
+                <h2 class="section-title"><i class="fas fa-wrench"></i> Try the Tools</h2>
+                
+                <div class="tool-tabs">
+                    <button class="tool-tab active" data-tool="google">Google Suggestions</button>
+                    <button class="tool-tab" data-tool="answer">Answer The Public</button>
+                    <button class="tool-tab" data-tool="uber">Ubersuggest</button>
+                </div>
+                
+                <!-- Google Suggestions Tool -->
+                <div class="tool-content active" id="google-tool">
+                    <div class="tool-input">
+                        <label for="google-keyword">Enter a keyword or phrase:</label>
+                        <input type="text" id="google-keyword" placeholder="e.g., digital marketing strategies">
+                    </div>
+                    <button class="search-btn" id="google-search">Get Search Suggestions</button>
+                    
+                    <div class="results-container" id="google-results">
+                        <h3 class="results-title">Popular Search Suggestions</h3>
+                        <ul class="results-list" id="google-results-list">
+                            <!-- Results will be populated here by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Answer The Public Tool -->
+                <div class="tool-content" id="answer-tool">
+                    <div class="tool-input">
+                        <label for="answer-keyword">Enter a topic or question:</label>
+                        <input type="text" id="answer-keyword" placeholder="e.g., social media marketing">
+                    </div>
+                    <button class="search-btn" id="answer-search">Find Questions & Queries</button>
+                    
+                    <div class="results-container" id="answer-results">
+                        <h3 class="results-title">Questions People Are Asking</h3>
+                        <ul class="results-list" id="answer-results-list">
+                            <!-- Results will be populated here by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Ubersuggest Tool -->
+                <div class="tool-content" id="uber-tool">
+                    <div class="tool-input">
+                        <label for="uber-keyword">Enter a keyword for analysis:</label>
+                        <input type="text" id="uber-keyword" placeholder="e.g., SEO basics">
+                    </div>
+                    <button class="search-btn" id="uber-search">Analyze Keyword</button>
+                    
+                    <div class="results-container" id="uber-results">
+                        <h3 class="results-title">Keyword Analysis Results</h3>
+                        <ul class="results-list" id="uber-results-list">
+                            <!-- Results will be populated here by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Right Column: Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3><i class="fas fa-lightbulb"></i> Digital Marketing Basics</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> What is Digital Marketing?</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> SEO Fundamentals</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Social Media Strategy</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Content Marketing</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Email Marketing Basics</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> PPC Advertising</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Analytics & Tracking</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-fire"></i> Trending Topics</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-hashtag"></i> AI in Marketing</a></li>
+                    <li><a href="#"><i class="fas fa-hashtag"></i> Voice Search Optimization</a></li>
+                    <li><a href="#"><i class="fas fa-hashtag"></i> Video Marketing 2024</a></li>
+                    <li><a href="#"><i class="fas fa-hashtag"></i> Local SEO Strategies</a></li>
+                    <li><a href="#"><i class="fas fa-hashtag"></i> Instagram Reels for Business</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-download"></i> Free Resources</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> SEO Checklist PDF</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Content Calendar Template</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Social Media Metrics Guide</a></li>
+                    <li><a href="#"><i class="fas fa-list-alt"></i> Keyword Research Worksheet</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
 
-<!-- Hero Section -->
-<div class="container mt-4">
-  <div class="jumbotron p-5 rounded bg-light text-center">
-    <h1 class="display-4">Welcome to Mountaineering Explorer</h1>
-    <p class="lead">Explore the thrill of mountain climbing, techniques, hazards, and much more.</p>
-    <a class="btn btn-primary btn-lg" href="history.html" role="button">Learn More</a>
-  </div>
-</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Digital Marketing Basics</h3>
+                    <p>Your guide to understanding and implementing effective digital marketing strategies using free and powerful tools.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Tools</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Tools Featured</h3>
+                    <a href="#">Google Search Suggestions</a>
+                    <a href="#">Answer The Public</a>
+                    <a href="#">Ubersuggest</a>
+                    <a href="#">Google Trends</a>
+                    <a href="#">Google Analytics</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@digitalmarketingbasics.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Marketing Street, Digital City</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Digital Marketing Basics. All rights reserved. | This is a demonstration website for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
 
-<!-- Latest Articles -->
-<div class="container mt-5">
-  <h2>Latest Articles</h2>
-  <ul class="list-group">
-    <li class="list-group-item"><a href="#">American Jim Morrison Back To Ski Everest North Side</a></li>
-    <li class="list-group-item"><a href="#">One-Legged Climber Trying to Summit 100 Peaks Across Japan</a></li>
-    <li class="list-group-item"><a href="#">Natural Wonders: Loughareema</a></li>
-  </ul>
-</div>
-
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-3 mt-5">
-  &copy; 2025 Mountaineering Explorer. All rights reserved.
-</footer>
-
-<!-- Bootstrap JS Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Tool tabs functionality
+        const toolTabs = document.querySelectorAll('.tool-tab');
+        const toolContents = document.querySelectorAll('.tool-content');
+        
+        toolTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                toolTabs.forEach(t => t.classList.remove('active'));
+                toolContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const toolName = tab.getAttribute('data-tool');
+                document.getElementById(`${toolName}-tool`).classList.add('active');
+            });
+        });
+        
+        // Google Search Suggestions data
+        const googleSuggestions = {
+            "digital marketing": [
+                "digital marketing strategies",
+                "digital marketing courses",
+                "digital marketing agency",
+                "digital marketing basics",
+                "digital marketing tools",
+                "digital marketing examples",
+                "digital marketing jobs",
+                "digital marketing certification"
+            ],
+            "seo": [
+                "seo tools",
+                "seo optimization",
+                "seo basics",
+                "seo services",
+                "seo vs sem",
+                "seo audit",
+                "seo company",
+                "seo strategies 2024"
+            ],
+            "social media marketing": [
+                "social media marketing strategies",
+                "social media marketing courses",
+                "social media marketing tools",
+                "social media marketing agency",
+                "social media marketing examples",
+                "social media marketing jobs",
+                "social media marketing certification"
+            ],
+            "content marketing": [
+                "content marketing strategy",
+                "content marketing examples",
+                "content marketing tools",
+                "content marketing agency",
+                "content marketing courses",
+                "content marketing metrics",
+                "content marketing ideas"
+            ]
+        };
+        
+        // Answer The Public data
+        const answerData = {
+            "social media marketing": [
+                "What is social media marketing?",
+                "Why is social media marketing important?",
+                "How to create a social media marketing strategy?",
+                "Which social media platform is best for marketing?",
+                "How to measure social media marketing ROI?",
+                "How much does social media marketing cost?",
+                "What are the latest social media marketing trends?"
+            ],
+            "seo": [
+                "What is SEO and how does it work?",
+                "Why is SEO important for businesses?",
+                "How to improve SEO ranking?",
+                "What are SEO best practices?",
+                "How long does SEO take to work?",
+                "What is the difference between SEO and SEM?",
+                "How to do keyword research for SEO?"
+            ],
+            "email marketing": [
+                "What is email marketing?",
+                "How to build an email list?",
+                "What are the best email marketing tools?",
+                "How to write effective marketing emails?",
+                "What is a good email open rate?",
+                "How often should you send marketing emails?",
+                "How to segment your email list?"
+            ]
+        };
+        
+        // Ubersuggest data
+        const uberSuggestData = {
+            "seo basics": {
+                volume: 5400,
+                difficulty: "Medium",
+                trafficPotential: "High",
+                competition: "High",
+                trends: [
+                    "SEO Fundamentals",
+                    "On-Page SEO",
+                    "Technical SEO",
+                    "Local SEO",
+                    "Mobile SEO"
+                ]
+            },
+            "digital marketing strategies": {
+                volume: 9900,
+                difficulty: "High",
+                trafficPotential: "Very High",
+                competition: "High",
+                trends: [
+                    "Content Strategy",
+                    "Social Media Strategy",
+                    "Email Marketing Strategy",
+                    "PPC Strategy",
+                    "Influencer Marketing"
+                ]
+            },
+            "content marketing": {
+                volume: 8100,
+                difficulty: "Medium",
+                trafficPotential: "High",
+                competition: "Medium",
+                trends: [
+                    "Blog Content",
+                    "Video Content",
+                    "Podcasting",
+                    "Infographics",
+                    "Case Studies"
+                ]
+            }
+        };
+        
+        // Function to get suggestions based on keyword
+        function getGoogleSuggestions(keyword) {
+            keyword = keyword.toLowerCase().trim();
+            
+            // Find matching suggestions
+            for (const [key, suggestions] of Object.entries(googleSuggestions)) {
+                if (keyword.includes(key)) {
+                    return suggestions;
+                }
+            }
+            
+            // Default suggestions if no match
+            return [
+                `${keyword} strategies`,
+                `${keyword} tools`,
+                `${keyword} courses`,
+                `${keyword} basics`,
+                `${keyword} examples`,
+                `${keyword} for beginners`,
+                `${keyword} best practices`,
+                `${keyword} trends 2024`
+            ];
+        }
+        
+        // Function to get Answer The Public data
+        function getAnswerData(keyword) {
+            keyword = keyword.toLowerCase().trim();
+            
+            // Find matching data
+            for (const [key, questions] of Object.entries(answerData)) {
+                if (keyword.includes(key)) {
+                    return questions;
+                }
+            }
+            
+            // Default questions if no match
+            return [
+                `What is ${keyword}?`,
+                `Why is ${keyword} important?`,
+                `How to use ${keyword} effectively?`,
+                `What are the benefits of ${keyword}?`,
+                `How to measure ${keyword} success?`,
+                `What are the best tools for ${keyword}?`,
+                `How much does ${keyword} cost?`
+            ];
+        }
+        
+        // Function to get Ubersuggest data
+        function getUberSuggestData(keyword) {
+            keyword = keyword.toLowerCase().trim();
+            
+            // Find matching data
+            for (const [key, data] of Object.entries(uberSuggestData)) {
+                if (keyword.includes(key)) {
+                    return data;
+                }
+            }
+            
+            // Default data if no match
+            return {
+                volume: Math.floor(Math.random() * 10000) + 1000,
+                difficulty: ["Low", "Medium", "High"][Math.floor(Math.random() * 3)],
+                trafficPotential: ["Low", "Medium", "High", "Very High"][Math.floor(Math.random() * 4)],
+                competition: ["Low", "Medium", "High"][Math.floor(Math.random() * 3)],
+                trends: [
+                    `${keyword} strategies`,
+                    `${keyword} tools`,
+                    `${keyword} best practices`,
+                    `${keyword} trends`,
+                    `${keyword} case studies`
+                ]
+            };
+        }
+        
+        // Google Search Suggestions functionality
+        document.getElementById('google-search').addEventListener('click', function() {
+            const keyword = document.getElementById('google-keyword').value;
+            const resultsList = document.getElementById('google-results-list');
+            
+            if (!keyword.trim()) {
+                alert("Please enter a keyword");
+                return;
+            }
+            
+            // Clear previous results
+            resultsList.innerHTML = '';
+            
+            // Get suggestions
+            const suggestions = getGoogleSuggestions(keyword);
+            
+            // Display results
+            suggestions.forEach(suggestion => {
+                const li = document.createElement('li');
+                li.className = 'result-item';
+                li.innerHTML = `<i class="fab fa-google"></i> ${suggestion}`;
+                resultsList.appendChild(li);
+            });
+            
+            // Scroll to results
+            document.getElementById('google-results').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Answer The Public functionality
+        document.getElementById('answer-search').addEventListener('click', function() {
+            const keyword = document.getElementById('answer-keyword').value;
+            const resultsList = document.getElementById('answer-results-list');
+            
+            if (!keyword.trim()) {
+                alert("Please enter a keyword");
+                return;
+            }
+            
+            // Clear previous results
+            resultsList.innerHTML = '';
+            
+            // Get questions
+            const questions = getAnswerData(keyword);
+            
+            // Display results
+            questions.forEach(question => {
+                const li = document.createElement('li');
+                li.className = 'result-item';
+                li.innerHTML = `<i class="fas fa-question-circle"></i> ${question}`;
+                resultsList.appendChild(li);
+            });
+            
+            // Scroll to results
+            document.getElementById('answer-results').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Ubersuggest functionality
+        document.getElementById('uber-search').addEventListener('click', function() {
+            const keyword = document.getElementById('uber-keyword').value;
+            const resultsList = document.getElementById('uber-results-list');
+            
+            if (!keyword.trim()) {
+                alert("Please enter a keyword");
+                return;
+            }
+            
+            // Clear previous results
+            resultsList.innerHTML = '';
+            
+            // Get data
+            const data = getUberSuggestData(keyword);
+            
+            // Create result items
+            const items = [
+                `<i class="fas fa-chart-line"></i> <strong>Search Volume:</strong> ${data.volume.toLocaleString()} monthly searches`,
+                `<i class="fas fa-tachometer-alt"></i> <strong>Difficulty:</strong> ${data.difficulty}`,
+                `<i class="fas fa-traffic-light"></i> <strong>Traffic Potential:</strong> ${data.trafficPotential}`,
+                `<i class="fas fa-users"></i> <strong>Competition:</strong> ${data.competition}`,
+                `<i class="fas fa-lightbulb"></i> <strong>Related Trends:</strong> ${data.trends.join(', ')}`
+            ];
+            
+            // Display results
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'result-item';
+                li.innerHTML = item;
+                resultsList.appendChild(li);
+            });
+            
+            // Scroll to results
+            document.getElementById('uber-results').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Enter key support for search inputs
+        const inputs = ['google-keyword', 'answer-keyword', 'uber-keyword'];
+        
+        inputs.forEach(inputId => {
+            document.getElementById(inputId).addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const tool = inputId.split('-')[0];
+                    document.getElementById(`${tool}-search`).click();
+                }
+            });
+        });
+        
+        // Populate initial example data
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set example keywords
+            document.getElementById('google-keyword').value = 'digital marketing';
+            document.getElementById('answer-keyword').value = 'social media marketing';
+            document.getElementById('uber-keyword').value = 'seo basics';
+            
+            // Load initial data for active tab (Google Suggestions)
+            document.getElementById('google-search').click();
+        });
+    </script>
 </body>
 </html>
